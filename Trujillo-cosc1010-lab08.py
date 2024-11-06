@@ -113,3 +113,34 @@ print("*" * 75)
 # Create a loop like above to prompt the user for input for the three values
 # Create a second function that just does the square root operation 
     # If the number you are trying to take the square root of is negative, return null
+
+import math
+
+def solve_quad(a, b, c):
+    disc = b**2 - 4*a*c
+    if disc < 0 :
+        return None, None
+    
+    sqrt_disc = math.sqrt(disc)
+    
+    root1 = (-b + sqrt_disc) / (2 * a)
+    root2 = (-b - sqrt_disc) / (2 * a)
+    return root1, root2
+    
+def get_user_input_solve():
+    print("Enter the coefficients for the quadratic equation (ax^2 + bx + c = 0):")
+    
+    a = float(input("Enter a coefficient a: "))
+    b = float(input("Enter a coefficient b: "))
+    c = float(input("Enter a coefficient c: "))
+    
+    root1, root2 = solve_quad(a, b, c)
+    
+    if root1 is None and root2 is None:
+        print("This has no real roots")
+    else:
+        print(f"Your roots are {root1} and {root2}")
+        
+get_user_input_solve()
+
+
